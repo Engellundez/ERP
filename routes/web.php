@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@inicio')->name('inicio');
+// RECURSOS HUMANOS
+Route::get('/RH', 'RecursosHumanosController@index')->name('rh');

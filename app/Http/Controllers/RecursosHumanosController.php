@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App;
 
-class Usuarios extends Controller
+class RecursosHumanosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,8 @@ class Usuarios extends Controller
      */
     public function index()
     {
-        //
+        $personal = App\RecursosHumanos::all();
+        return view('RecursosHumanosView', compact('personal'));
     }
 
     /**
