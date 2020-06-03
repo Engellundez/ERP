@@ -23,10 +23,10 @@ class CreateRecursosHumanosTable extends Migration
             $table->string('nombre');
             $table->string('apellido_paterno');
             $table->string('apellido_materno');
-            $table->string('fecha_nacimiento');
+            $table->date('fecha_nacimiento');
             $table->string('email')->unique();
             $table->string('direccion')->nullable();
-            $table->string('telefono');
+            $table->biginteger('telefono');
             $table->string('colonia');
             $table->timestamps();
             

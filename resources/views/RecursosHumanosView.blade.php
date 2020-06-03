@@ -26,7 +26,7 @@ Recursos Humanos
         </tr>
     </thead>
     <tbody>
-        @foreach($personal as $item)
+        @foreach($RH as $item)
             <tr>
                 <th scope="row">{{$item->entidad_id}}</th>
                 <td>{{$item->universidad_id}}</td>

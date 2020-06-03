@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App;
+use App\RecursosHumanos;
+use App\Entidad;
 
 class RecursosHumanosController extends Controller
 {
@@ -14,8 +15,8 @@ class RecursosHumanosController extends Controller
      */
     public function index()
     {
-        $personal = App\RecursosHumanos::all();
-        return view('RecursosHumanosView', compact('personal'));
+        $RH = RecursosHumanos::all();
+        return view('RecursosHumanosView', compact('RH'));
     }
 
     /**
