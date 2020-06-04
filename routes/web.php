@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'PagesController@inicio')->name('inicio');
 // RECURSOS HUMANOS
 Route::get('/RH', 'RecursosHumanosController@index')->name('rh');
+Route::get('/RH/Registrar', 'RecursosHumanosController@create')->name('rh_create');
+Route::post('/RH/Crear', 'RecursosHumanosController@store')->name('rh_guardar');

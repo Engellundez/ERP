@@ -8,7 +8,7 @@ Recursos Humanos
 <br>
 <h1>Recursos Humanos</h1>
 <br>
-<a href=""><button class="btn btn-success">Agregar</button></a>
+<a href="{{ route('rh_create') }}"><button class="btn btn-success">Agregar</button></a>
 <br><br>
 <table class="table">
     <thead class="thead-dark">

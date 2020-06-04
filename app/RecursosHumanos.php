@@ -7,15 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class RecursosHumanos extends Model
 {
     public function departamento(){
-        return $this->hasMany(Departamento::class);
+        return $this->belongsTo(Departamento::class);
     }
     public function entidad(){
-        return $this->hasMany(Entidad::class);
+        return $this->belongsTo(Entidad::class);
     }
     public function puesto(){
-        return $this->hasMany(Puesto::class);
+        return $this->belongsTo(Puesto::class);
     }
     public function universidad(){
-        return $this->hasMany(Universidad::class);
+        return $this->belongsTo(Universidad::class);
     }
 }

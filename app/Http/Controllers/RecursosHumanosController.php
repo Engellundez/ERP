@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\RecursosHumanos;
 use App\Entidad;
+use App\Departamento;
+use App\puesto;
+use App\RecursosHumanos;
+use App\Universidad;
 
 class RecursosHumanosController extends Controller
 {
@@ -16,7 +19,7 @@ class RecursosHumanosController extends Controller
     public function index()
     {
         $RH = RecursosHumanos::all();
-        return view('RecursosHumanosView', compact('RH'));
+        return view('rhView', compact('RH'));
     }
 
     /**
@@ -26,7 +29,11 @@ class RecursosHumanosController extends Controller
      */
     public function create()
     {
-        //
+        $enti = Entidad::all();
+        $uni = Universidad::all();
+        $pues = puesto::all();
+        $dep = Departamento::all();
+        return view('rhcreate', compact('enti','uni','pues','dep'));
     }
 
     /**
@@ -37,7 +44,39 @@ class RecursosHumanosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'entidad_id'        => 'required',
+            'universidad_id'    => 'required',
+            'departamento_id'   => 'required',
+            'puesto_id'         => 'required',
+            'presupuesto'       => 'required',
+            'nombre'            => 'required',
+            'apellido_paterno'  => 'required',
+            'apellido_materno'  => 'required',
+            'fecha_nacimiento'  => 'required',
+            'email'             => 'required',
+            'direccion'         => 'required',
+            'colonia'           => 'required',
+            'telefono'          => 'required',
+        ]);
+        
+        $nuevoRH = new RecursosHumanos;
+        $nuevoRH->entidad_id        = $request->entidad_id;
+        $nuevoRH->universidad_id    = $request->universidad_id;
+        $nuevoRH->departamento_id   = $request->departamento_id;
+        $nuevoRH->puesto_id         = $request->puesto_id;
+        $nuevoRH->presupuesto       = $request->presupuesto;
+        $nuevoRH->nombre            = $request->nombre;
+        $nuevoRH->apellido_paterno  = $request->apellido_paterno;
+        $nuevoRH->apellido_materno  = $request->apellido_materno;
+        $nuevoRH->fecha_nacimiento  = $request->fecha_nacimiento;
+        $nuevoRH->email             = $request->email;
+        $nuevoRH->direccion         = $request->direccion;
+        $nuevoRH->colonia           = $request->colonia;
+        $nuevoRH->telefono          = $request->telefono;
+        $nuevoRH->save();
+
+        return back()->with('mensaje', '¡Usuario Agregado!');
     }
 
     /**
