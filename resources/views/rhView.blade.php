@@ -10,6 +10,11 @@ Recursos Humanos
 <br>
 <a href="{{ route('rh_create') }}"><button class="btn btn-success">Agregar</button></a>
 <br><br>
+@if(session('mensaje'))
+    <div class="alert alert-success">
+        {{session('mensaje')}}
+    </div>
+@endif
 <table class="table">
     <thead class="thead-dark">
         <tr>
@@ -38,10 +43,14 @@ Recursos Humanos
                 <td>{{$item->colonia}} {{$item->direccion}}</td>
                 <td>{{$item->telefono}}</td>
                 <td>
-                    <a href=""><button class="btn btn-primary">Editar</button></a>
+                    <a href="{{route('rh_editar', $item)}}"><button class="btn btn-primary btn-sm">Editar</button></a>
                 </td>
                 <td>
-                    <a href=""><button class="btn btn-danger">Eliminar</button></a>
+                <form action="{{route('rh_eliminar', $item)}}" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                </form>
                 </td>
             </tr>
         @endforeach

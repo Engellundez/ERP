@@ -18,3 +18,8 @@ Route::get('/', 'PagesController@inicio')->name('inicio');
 Route::get('/RH', 'RecursosHumanosController@index')->name('rh');
 Route::get('/RH/Registrar', 'RecursosHumanosController@create')->name('rh_create');
 Route::post('/RH/Crear', 'RecursosHumanosController@store')->name('rh_guardar');
+Route::get('/RH/Editar/{id}', 'RecursosHumanosController@edit')->name('rh_editar');
+Route::put('/RH/actualizar/{id}', 'RecursosHumanosController@update')->name('rhactualizar');
+Route::delete('/RH/eliminar/{id}', 'RecursosHumanosController@destroy')->name('rh_eliminar');
+
+// DEPARTAMENTOS

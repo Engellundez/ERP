@@ -98,7 +98,13 @@ class RecursosHumanosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $rh = RecursosHumanos::findOrFail($id);        
+        $enti = Entidad::all();
+        $uni = Universidad::all();
+        $pues = puesto::all();
+        $dep = Departamento::all();
+
+        return view('rheditar', compact('rh','enti','uni','pues','dep'));
     }
 
     /**
@@ -110,7 +116,39 @@ class RecursosHumanosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'entidad_id'        => 'required',
+            'universidad_id'    => 'required',
+            'departamento_id'   => 'required',
+            'puesto_id'         => 'required',
+            'presupuesto'       => 'required',
+            'nombre'            => 'required',
+            'apellido_paterno'  => 'required',
+            'apellido_materno'  => 'required',
+            'fecha_nacimiento'  => 'required',
+            'email'             => 'required',
+            'direccion'         => 'required',
+            'colonia'           => 'required',
+            'telefono'          => 'required',
+        ]);
+
+        $rhactualizar = RecursosHumanos::findOrFail($id);
+        $rhactualizar->entidad_id        = $request->entidad_id;
+        $rhactualizar->universidad_id    = $request->universidad_id;
+        $rhactualizar->departamento_id   = $request->departamento_id;
+        $rhactualizar->puesto_id         = $request->puesto_id;
+        $rhactualizar->presupuesto       = $request->presupuesto;
+        $rhactualizar->nombre            = $request->nombre;
+        $rhactualizar->apellido_paterno  = $request->apellido_paterno;
+        $rhactualizar->apellido_materno  = $request->apellido_materno;
+        $rhactualizar->fecha_nacimiento  = $request->fecha_nacimiento;
+        $rhactualizar->email             = $request->email;
+        $rhactualizar->direccion         = $request->direccion;
+        $rhactualizar->colonia           = $request->colonia;
+        $rhactualizar->telefono          = $request->telefono;
+        $rhactualizar->save();
+
+        return back()->with('mensaje', 'Personal Actualizado');
     }
 
     /**
@@ -121,6 +159,9 @@ class RecursosHumanosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rheliminar = RecursosHumanos::findOrFail($id);
+        $rheliminar->delete();
+        
+        return back()->with('mensaje', 'Personal Eliminado');
     }
 }
