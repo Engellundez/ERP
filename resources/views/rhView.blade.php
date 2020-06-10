@@ -11,7 +11,7 @@ Recursos Humanos
 <a href="{{ route('rh_create') }}"><button class="btn btn-success">Agregar</button></a>
 <br><br>
 @if(session('mensaje'))
-    <div class="alert alert-success">
+    <div class="alert alert-danger">
         {{session('mensaje')}}
     </div>
 @endif
@@ -56,4 +56,5 @@ Recursos Humanos
         @endforeach
     </tbody>
 </table>
+{{$RH->links()}}
 @endsection

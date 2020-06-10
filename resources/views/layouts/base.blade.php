@@ -15,6 +15,9 @@
             <a class="navbar-brand" href="{{ route('inicio') }}">INICIO</a>
             <a class="navbar-brand" href="{{ route('rh') }}">Recursos Humanos</a>
             <a class="navbar-brand" href="{{ route('uni') }}">Universidades</a>
+            <a class="navbar-brand" href="{{ route('depa') }}">Departamentos</a>
+            <a class="navbar-brand" href="{{ route('pues') }}">Puestos</a>
+            <a class="navbar-brand" href="{{ route('enti') }}">Entidades</a>
         </nav>
 
         <div class="container">

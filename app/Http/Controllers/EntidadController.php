@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Universidad;
+use App\Entidad;
 
-class UniversidadController extends Controller
+class EntidadController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class UniversidadController extends Controller
      */
     public function index()
     {
-        $uni = Universidad::paginate(5);
-        return view('Universidad.uniView', compact('uni'));
+        $enti = Entidad::paginate(5);
+        return view('Entidad.entiView', compact('enti'));
     }
 
     /**
@@ -25,7 +25,7 @@ class UniversidadController extends Controller
      */
     public function create()
     {
-        return view('Universidad.unicreate');
+        return view('Entidad.enticreate');
     }
 
     /**
@@ -37,16 +37,14 @@ class UniversidadController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre'    =>'required',
-            'ciudad'    =>'required',
+            'nombreEntidad'=>'required',
         ]);
 
-        $nuevaUni = new Universidad;
-        $nuevaUni->nombre   = $request->nombre;
-        $nuevaUni->ciudad   = $request->ciudad;
-        $nuevaUni->save();
+        $nuevaEnti = new Entidad;
+        $nuevaEnti->nombreEntidad = $request->nombreEntidad;
+        $nuevaEnti->save();
 
-        return back()->with('mensaje', 'La Universidad a sido agregada correctamente');
+        return back()->with('mensaje', 'La Entidad se agrego correctamente');
     }
 
     /**
@@ -68,8 +66,8 @@ class UniversidadController extends Controller
      */
     public function edit($id)
     {
-        $uni = Universidad::findOrFail($id);
-        return view('Universidad.unieditar', compact('uni'));
+        $enti = Entidad::findOrFail($id);
+        return view('Entidad.entieditar', compact('enti'));
     }
 
     /**
@@ -82,16 +80,14 @@ class UniversidadController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre'    => 'required',
-            'ciudad'    => 'required',
+            'nombreEntidad'=>'required',
         ]);
 
-        $uniactualizar = Universidad::findOrFail($id);
-        $uniactualizar->nombre  = $request->nombre;
-        $uniactualizar->ciudad  = $request->ciudad;
-        $uniactualizar->save();
+        $entiactualizar = Entidad::findOrFail($id);
+        $entiactualizar->nombreEntidad = $request->nombreEntidad;
+        $entiactualizar->save();
 
-        return back()->with('mensaje', 'La Universidad a sido Actualizada');
+        return back()->with('mensaje', 'La Entidad a sido actualizada');
     }
 
     /**
@@ -102,9 +98,9 @@ class UniversidadController extends Controller
      */
     public function destroy($id)
     {
-        $unieliminar = Universidad::findOrFail($id);
-        $unieliminar->delete();
+        $entieliminar = Entidad::findOrFail($id);
+        $entieliminar->delete();
 
-        return back()->with('mensaje', 'La universidad a sido eliminada');
+        return back()->with('mensaje', 'La entidad ha sido eliminada');
     }
 }

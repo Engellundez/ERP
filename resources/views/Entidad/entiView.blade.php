@@ -1,14 +1,14 @@
 @extends('layouts.base')
 
 @section('title')
-Universidades
+Entidades
 @endsection
 
 @section('content')
 <br>
-<h1>Universidades</h1>
+<h1>Entidades</h1>
 <br>
-<a href="{{ route('uni_create') }}"><button class="btn btn-success">Agregar</button></a>
+<a href="{{ route('enti_create') }}"><button class="btn btn-success">Agregar</button></a>
 <br><br>
 @if(session('mensaje'))
     <div class="alert alert-danger">
@@ -18,21 +18,19 @@ Universidades
 <table class="table">
     <thead class="thead-dark">
         <tr>
-            <th scope="col">Nombre de la Universidad</th>
-            <th scope="col">Cuidad</th>
+            <th scope="col">Nombre del Entidad</th>
             <th colspan="2" scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($uni as $item)
+        @foreach($enti as $item)
             <tr>
-                <th scope="row">{{$item->nombre}}</th>
-                <td>{{$item->ciudad}}</td>
+                <th scope="row">{{$item->nombreEntidad}}</th>
                 <td>
-                    <a href="{{route('uni_editar', $item)}}"><button class="btn btn-primary btn-sm">Editar</button></a>
+                    <a href="{{route('enti_editar', $item)}}"><button class="btn btn-primary btn-sm">Editar</button></a>
                 </td>
                 <td>
-                <form action="{{route('uni_eliminar', $item)}}" method="POST">
+                <form action="{{route('enti_eliminar', $item)}}" method="POST">
                     @method('DELETE')
                     @csrf
                     <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
@@ -42,5 +40,7 @@ Universidades
         @endforeach
     </tbody>
 </table>
-{{$uni->links()}}
+
+{{ $enti->links() }}
+
 @endsection

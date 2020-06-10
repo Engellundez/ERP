@@ -18,7 +18,7 @@ class RecursosHumanosController extends Controller
      */
     public function index()
     {
-        $RH = RecursosHumanos::all();
+        $RH = RecursosHumanos::paginate(5);
         return view('rhView', compact('RH'));
     }
 

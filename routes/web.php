@@ -30,6 +30,30 @@ Route::get('Universidad/Editar/{id}', 'UniversidadController@edit')->name('uni_e
 Route::put('Universidad/actualizar/{id}', 'UniversidadController@update')->name('uni_actualizar');
 Route::delete('Universidad/eliminar/{id}', 'UniversidadController@destroy')->name('uni_eliminar');
 
+// DEPARTAMENTOS
+Route::get('Departamento', 'DepartamentoController@index')->name('depa');
+Route::get('Departamento/Registrar', 'DepartamentoController@create')->name('depa_create');
+Route::post('Departamento/crear', 'DepartamentoController@store')->name('depa_guardar');
+Route::get('Departamento/Editar/{id}', 'DepartamentoController@edit')->name('depa_editar');
+Route::put('Departamento/actualizar/{id}', 'DepartamentoController@update')->name('depa_actualizar');
+Route::delete('Departamento/eliminar/{id}', 'DepartamentoController@destroy')->name('depa_eliminar');
+
+// PUESTOS
+Route::get('Puesto', 'PuestoController@index')->name('pues');
+Route::get('Puesto/Registrar', 'PuestoController@create')->name('pues_create');
+Route::post('Puesto/crear', 'PuestoController@store')->name('pues_guardar');
+Route::get('Puesto/Editar/{id}', 'PuestoController@edit')->name('pues_editar');
+Route::put('Puesto/actualizar/{id}', 'PuestoController@update')->name('pues_actualizar');
+Route::delete('Puesto/eliminar/{id}', 'PuestoController@destroy')->name('pues_eliminar');
+
+// ENTIDADES
+Route::get('Entidades', 'EntidadController@index')->name('enti');
+Route::get('Entidades/Registrar', 'EntidadController@create')->name('enti_create');
+Route::post('Entidades/crear', 'EntidadController@store')->name('enti_guardar');
+Route::get('Entidades/Editar/{id}', 'EntidadController@edit')->name('enti_editar');
+Route::put('Entidades/actualizar/{id}', 'EntidadController@update')->name('enti_actualizar');
+Route::delete('Entidades/eliminar/{id}', 'EntidadController@destroy')->name('enti_eliminar');
+
 // CONTROL ESTUDIANTIL
 
 // PERSONAL

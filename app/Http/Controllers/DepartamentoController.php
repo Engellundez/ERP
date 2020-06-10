@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Universidad;
+use App\Departamento;
 
-class UniversidadController extends Controller
+class DepartamentoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class UniversidadController extends Controller
      */
     public function index()
     {
-        $uni = Universidad::paginate(5);
-        return view('Universidad.uniView', compact('uni'));
+        $depa = Departamento::paginate(5);
+        return view('Departamento.depaView', compact('depa'));
     }
 
     /**
@@ -25,7 +25,7 @@ class UniversidadController extends Controller
      */
     public function create()
     {
-        return view('Universidad.unicreate');
+        return view('Departamento.depacreate');
     }
 
     /**
@@ -37,16 +37,14 @@ class UniversidadController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre'    =>'required',
-            'ciudad'    =>'required',
+            'nombre' => 'required',
         ]);
 
-        $nuevaUni = new Universidad;
-        $nuevaUni->nombre   = $request->nombre;
-        $nuevaUni->ciudad   = $request->ciudad;
-        $nuevaUni->save();
+        $nuevodepa = new Departamento;
+        $nuevodepa->nombre = $request->nombre;
+        $nuevodepa->save();
 
-        return back()->with('mensaje', 'La Universidad a sido agregada correctamente');
+        return back()->with('mensaje', 'El departamento se agrego correctamente');
     }
 
     /**
@@ -68,8 +66,8 @@ class UniversidadController extends Controller
      */
     public function edit($id)
     {
-        $uni = Universidad::findOrFail($id);
-        return view('Universidad.unieditar', compact('uni'));
+        $depa = Departamento::findOrFail($id);
+        return view('Departamento.depaeditar', compact('depa'));
     }
 
     /**
@@ -82,16 +80,14 @@ class UniversidadController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre'    => 'required',
-            'ciudad'    => 'required',
+            'nombre' => 'required',
         ]);
 
-        $uniactualizar = Universidad::findOrFail($id);
-        $uniactualizar->nombre  = $request->nombre;
-        $uniactualizar->ciudad  = $request->ciudad;
-        $uniactualizar->save();
+        $depaactualizar = Departamento::findOrFail($id);
+        $depaactualizar->nombre = $request->nombre;
+        $depaactualizar->save();
 
-        return back()->with('mensaje', 'La Universidad a sido Actualizada');
+        return back()->with('mensaje', 'El Departamento a sido Actualizado');
     }
 
     /**
@@ -102,9 +98,9 @@ class UniversidadController extends Controller
      */
     public function destroy($id)
     {
-        $unieliminar = Universidad::findOrFail($id);
-        $unieliminar->delete();
+        $depaeliminar = Departamento::findOrFail($id);
+        $depaeliminar->delete();
 
-        return back()->with('mensaje', 'La universidad a sido eliminada');
+        return back()->with('mensaje', 'El Departamento ha sido elimindo');
     }
 }
