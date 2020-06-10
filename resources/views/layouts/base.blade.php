@@ -10,13 +10,16 @@
 </head>
 
 <body>
-    <div class="container" style="text-align:center;">
+    <div style="text-align:center;">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{{ route('inicio') }}">INICIO</a>
             <a class="navbar-brand" href="{{ route('rh') }}">Recursos Humanos</a>
+            <a class="navbar-brand" href="{{ route('uni') }}">Universidades</a>
         </nav>
 
-        @yield('content')
+        <div class="container">
+            @yield('content')
+        </div>
     </div>
 </body>
 </html>

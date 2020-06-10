@@ -25,7 +25,7 @@ Recursos Humanos - Editar
     @enderror
     <label>Entidad</label>
     <select name="entidad_id" class="form-control mb-2">
-        <option value="{{$rh->entidad_id}}">{{$rh->entidad_id}}</option>
+        <option value="{{$rh->entidad_id}}">{{$rh->entidad->nombreEntidad}}</option>
         @foreach($enti as $item)
             <option value="{{$item->id}}">{{$item->nombreEntidad}}</option>
         @endforeach
@@ -37,7 +37,7 @@ Recursos Humanos - Editar
     @enderror
     <label>Universidad</label>
     <select name="universidad_id" class="form-control mb-2">
-        <option value="{{$rh->universidad_id}}">{{$rh->universidad_id}}</option>
+        <option value="{{$rh->universidad_id}}">{{$rh->universidad->nombre}} - {{$rh->universidad->ciudad}}</option>
         @foreach($uni as $item)
             <option value="{{$item->id}}">{{$item->nombre}} - {{$item->ciudad}}</option>
         @endforeach
@@ -49,7 +49,7 @@ Recursos Humanos - Editar
     @enderror
     <label>Departamento</label>
     <select name="departamento_id" class="form-control mb-2">
-        <option value="{{$rh->departamento_id}}">{{$rh->departamento_id}}</option>
+        <option value="{{$rh->departamento_id}}">{{$rh->departamento->nombre}}</option>
         @foreach($dep as $item)
             <option value="{{$item->id}}">{{$item->nombre}}</option>
         @endforeach
@@ -61,7 +61,7 @@ Recursos Humanos - Editar
     @enderror
     <label>Puesto</label>
     <select name="puesto_id" class="form-control mb-2">
-        <option value="{{$rh->puesto_id}}">{{$rh->puesto_id}}</option>
+        <option value="{{$rh->puesto_id}}">{{$rh->puesto->nombre}}</option>
         @foreach($pues as $item)
             <option value="{{$item->id}}">{{$item->nombre}}</option>
         @endforeach
