@@ -13,10 +13,7 @@ class RecursosHumanosSeeder extends Seeder
     public function run()
     {
         DB::table('recursos_humanos')->insert([
-            'entidad_id' => '16',
             'universidad_id' => '1',
-            'departamento_id' => '2',
-            'puesto_id' => '1',
             'presupuesto' => '7000',
             'nombre' => 'Angel David',
             'apellido_paterno' => 'Escutia',
@@ -26,6 +23,18 @@ class RecursosHumanosSeeder extends Seeder
             'direccion' => 'aramen #541',
             'telefono' => '4433867825',
             'colonia' => 'felix ireta',
+        ]);
+        DB::table('recursos_humanos')->insert([
+            'universidad_id' => '1',
+            'presupuesto' => '7000',
+            'nombre' => 'Mario Alberto',
+            'apellido_paterno' => 'Sanchez',
+            'apellido_materno' => 'Raya',
+            'fecha_nacimiento' => '1993-05-18',
+            'email' => 'Mario_alsr@hotmail.com',
+            'direccion' => 'morelia',
+            'telefono' => '4431732550',
+            'colonia' => 'Centro',
         ]);
     }
 }

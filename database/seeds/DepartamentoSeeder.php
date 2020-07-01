@@ -13,16 +13,16 @@ class DepartamentoSeeder extends Seeder
     public function run()
     {
         DB::table('departamentos')->insert([
-            'nombre' => 'Recursos Humanos',
+            'nombre' => 'Atención estudiantil',
+        ]);
+        DB::table('departamentos')->insert([
+            'nombre' => 'Administración',
         ]);
         DB::table('departamentos')->insert([
             'nombre' => 'Finanzas',
         ]);
         DB::table('departamentos')->insert([
-            'nombre' => 'Atención estudiantil',
-        ]);
-        DB::table('departamentos')->insert([
-            'nombre' => 'Administración',
+            'nombre' => 'Recursos Humanos',
         ]);
     }
 }

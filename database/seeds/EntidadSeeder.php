@@ -13,100 +13,100 @@ class EntidadSeeder extends Seeder
     public function run()
     {
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Aguascalientes',
+            'nombre' => 'Aguascalientes',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Baja California',
+            'nombre' => 'Baja California',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Baja California Sur',
+            'nombre' => 'Baja California Sur',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Campeche',
+            'nombre' => 'Campeche',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Chiapas',
+            'nombre' => 'Chiapas',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Chihuahua',
+            'nombre' => 'Chihuahua',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Coahuila',
+            'nombre' => 'Coahuila',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Colima',
+            'nombre' => 'Colima',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Ciudad de México',
+            'nombre' => 'Ciudad de México',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Durango',
+            'nombre' => 'Durango',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Estado de México',
+            'nombre' => 'Estado de México',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Guanajuato',
+            'nombre' => 'Guanajuato',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Guerrero',
+            'nombre' => 'Guerrero',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Hidalgo',
+            'nombre' => 'Hidalgo',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Jalisco',
+            'nombre' => 'Jalisco',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Michoacán',
+            'nombre' => 'Michoacán',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Morelos',
+            'nombre' => 'Morelos',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Nayarit',
+            'nombre' => 'Nayarit',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Nuevo León',
+            'nombre' => 'Nuevo León',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Oaxaca',
+            'nombre' => 'Oaxaca',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Puebla',
+            'nombre' => 'Puebla',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Querétaro',
+            'nombre' => 'Querétaro',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Quintana Roo',
+            'nombre' => 'Quintana Roo',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'San Luis Potosi',
+            'nombre' => 'San Luis Potosi',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Sinaloa',
+            'nombre' => 'Sinaloa',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Sonora',
+            'nombre' => 'Sonora',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Tabasco',
+            'nombre' => 'Tabasco',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Tamaulipas',
+            'nombre' => 'Tamaulipas',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Tlaxcala',
+            'nombre' => 'Tlaxcala',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Veracruz',
+            'nombre' => 'Veracruz',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Yucatán',
+            'nombre' => 'Yucatán',
         ]);
         DB::table('entidads')->insert([
-            'nombreEntidad' => 'Zacatecas',
+            'nombre' => 'Zacatecas',
         ]);
     }
 }

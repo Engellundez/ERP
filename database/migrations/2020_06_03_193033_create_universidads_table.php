@@ -15,9 +15,13 @@ class CreateUniversidadsTable extends Migration
     {
         Schema::create('universidads', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
+            $table->unsignedBigInteger('entidad_id');
             $table->string('ciudad');
+            $table->string('nombre');
             $table->timestamps();
+
+            $table->foreign('entidad_id')->references('id')->on('entidads')->onUpdate('cascade');
+
         });
     }
 

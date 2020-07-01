@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Departamento extends Model
 {
-    public function rh(){
-        return $this->hasMany('App\RecursosHumanos', 'departamento_id');
+    public function universidadDepartamento(){
+        return $this->hasOne('App\universidadDepartamento', 'departamento_id');
     }
 }

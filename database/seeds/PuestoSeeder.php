@@ -21,5 +21,11 @@ class PuestoSeeder extends Seeder
         DB::table('puestos')->insert([
             'nombre' => 'Coordinador',
         ]);
+        DB::table('puestos')->insert([
+            'nombre' => 'Director de finanzas',
+        ]);
+        DB::table('puestos')->insert([
+            'nombre' => 'Administrador',
+        ]);
     }
 }

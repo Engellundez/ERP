@@ -15,7 +15,7 @@ class CreateEntidadsTable extends Migration
     {
         Schema::create('entidads', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombreEntidad');
+            $table->string('nombre');
             $table->timestamps();
         });
     }

@@ -13,12 +13,14 @@ class UniversidadSeeder extends Seeder
     public function run()
     {
         DB::table('universidads')->insert([
-            'nombre' => 'UNID Campus Morelia',
+            'entidad_id' => '16',
             'ciudad' => 'Morelia',
+            'nombre' => 'UNID Campus Morelia',
         ]);
         DB::table('universidads')->insert([
-            'nombre' => 'UNID Ocolusen',
+            'entidad_id' => '16',
             'ciudad' => 'Morelia',
+            'nombre' => 'UNID Ocolusen',
         ]);
     }
 }
