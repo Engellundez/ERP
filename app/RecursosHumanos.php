@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class RecursosHumanos extends Model
 {
-    public function universidad(){
-        return $this->belongsTo('App\Universidad', 'universidad_id');
+    public function universidadDepartamento(){
+        return $this->belongsTo('App\universidadDepartamento', 'universidad_departamento_id');
+    }
+
+    public function departamentoPuesto(){
+        return $this->belongsTo('App\departamentoPuesto', 'departamento_puesto_id');
     }
 }

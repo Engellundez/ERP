@@ -33,7 +33,7 @@ Recursos Humanos
     <tbody>
         @foreach($RH as $item)
             <tr>
-                <th scope="row">{{$item->entidad->nombreEntidad}}</th>
+                <th scope="row">{{$item->entidad->nombre}}</th>
                 <td>{{$item->universidad->nombre}}</td>
                 <td>{{$item->departamento->nombre}}</td>
                 <td>{{$item->puesto->nombre}}</td>

@@ -13,4 +13,8 @@ class universidadDepartamento extends Model
     public function departamento(){
         return $this->belongsTo('App\Departamento', 'departamento_id');
     }
+
+    public function recursosHumanos(){
+        return $this->hasOne('App\RecursosHumanos', 'universidad_departamento_id');
+    }
 }

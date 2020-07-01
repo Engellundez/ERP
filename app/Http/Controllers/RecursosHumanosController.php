@@ -29,10 +29,10 @@ class RecursosHumanosController extends Controller
      */
     public function create()
     {
-        $enti = Entidad::all();
-        $uni = Universidad::all();
-        $pues = puesto::all();
         $dep = Departamento::all();
+        $enti = Entidad::all();
+        $pues = puesto::all();
+        $uni = Universidad::all();
         return view('rhcreate', compact('enti','uni','pues','dep'));
     }
 
