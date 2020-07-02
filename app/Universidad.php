@@ -9,4 +9,7 @@ class Universidad extends Model
     public function universidadDepartamento(){
         return $this->hasOne('App\universidadDepartamento', 'universidad_id');
     }
+    public function entidad(){
+        return $this->belongsTo('App\Entidad', 'entidad_id');
+    }
 }

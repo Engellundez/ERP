@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDepartamentoPuestosTable extends Migration
+class CreateUniversidadDepartamentoPuestosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateDepartamentoPuestosTable extends Migration
      */
     public function up()
     {
-        Schema::create('departamento_puestos', function (Blueprint $table) {
+        Schema::create('universidad_departamento_puestos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('universidad_id');
             $table->unsignedBigInteger('departamento_id');
             $table->unsignedBigInteger('puesto_id');
 
+            $table->foreign('universidad_id')->references('id')->on('universidads')->onUpdate('cascade');
             $table->foreign('departamento_id')->references('id')->on('departamentos')->onUpdate('cascade');
             $table->foreign('puesto_id')->references('id')->on('puestos')->onUpdate('cascade');
-
         });
     }
 
@@ -31,6 +32,6 @@ class CreateDepartamentoPuestosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('departamento_puestos');
+        Schema::dropIfExists('universidad_departamento_puestos');
     }
 }

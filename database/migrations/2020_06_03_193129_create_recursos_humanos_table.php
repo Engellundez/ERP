@@ -15,8 +15,7 @@ class CreateRecursosHumanosTable extends Migration
     {
         Schema::create('recursos_humanos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('universidad_departamento_id');
-            $table->unsignedBigInteger('departamento_puesto_id');
+            $table->unsignedBigInteger('universidad_departamento_puesto_id');
             $table->string('presupuesto');
             $table->string('nombre');
             $table->string('apellido_paterno');
@@ -28,8 +27,7 @@ class CreateRecursosHumanosTable extends Migration
             $table->string('colonia');
             $table->timestamps();
             
-            $table->foreign('universidad_departamento_id')->references('id')->on('universidad_departamentos')->onUpdate('cascade');
-            $table->foreign('departamento_puesto_id')->references('id')->on('departamento_puestos')->onUpdate('cascade');
+            $table->foreign('universidad_departamento_puesto_id')->references('id')->on('universidad_departamento_puestos')->onUpdate('cascade');
         });
     }
 
