@@ -24,6 +24,20 @@ Universidad
     <label>Nombre de la Universidad</label>
     <input type="text" name="nombre" placeholder="Nombre de la universidad" class="form-control mb-2" value="{{old('nombre')}}">
     
+    @error('entidad_id')
+        <div class="alert alert-danger">
+            Escoja una Entidad
+        </div>
+    @enderror
+    
+    <label>Entidad</label>
+    <select name="entidad_id" class="form-control mb-2">
+        <option value="">Selecciona una opcion</option>
+        @foreach($enti as $item)
+            <option value="{{$item->id}}">{{$item->nombre}}</option>
+        @endforeach
+    </select>
+
     @error('ciudad')
         <div class="alert alert-danger">
             La Ciudad donde se localiza la universidad es necesaria

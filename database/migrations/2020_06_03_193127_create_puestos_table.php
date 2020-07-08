@@ -15,9 +15,11 @@ class CreatePuestosTable extends Migration
     {
         Schema::create('puestos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('departamento_id');
             $table->string('nombre');
             $table->timestamps();
 
+            $table->foreign('departamento_id')->references('id')->on('departamentos')->onUpdate('cascade');
 
         });
     }

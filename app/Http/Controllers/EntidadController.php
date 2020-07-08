@@ -14,7 +14,7 @@ class EntidadController extends Controller
      */
     public function index()
     {
-        $enti = Entidad::paginate(5);
+        $enti = Entidad::orderBy('nombre', 'ASC')->paginate(5);
         return view('Entidad.entiView', compact('enti'));
     }
 
@@ -37,11 +37,11 @@ class EntidadController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombreEntidad'=>'required',
+            'nombre'=>'required',
         ]);
 
         $nuevaEnti = new Entidad;
-        $nuevaEnti->nombreEntidad = $request->nombreEntidad;
+        $nuevaEnti->nombre = $request->nombre;
         $nuevaEnti->save();
 
         return back()->with('mensaje', 'La Entidad se agrego correctamente');
@@ -80,11 +80,11 @@ class EntidadController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nombreEntidad'=>'required',
+            'nombre'=>'required',
         ]);
 
         $entiactualizar = Entidad::findOrFail($id);
-        $entiactualizar->nombreEntidad = $request->nombreEntidad;
+        $entiactualizar->nombre = $request->nombre;
         $entiactualizar->save();
 
         return back()->with('mensaje', 'La Entidad a sido actualizada');

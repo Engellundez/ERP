@@ -22,5 +22,10 @@ class UniversidadSeeder extends Seeder
             'ciudad' => 'Morelia',
             'nombre' => 'UNID Ocolusen',
         ]);
+        DB::table('universidads')->insert([
+            'entidad_id' => '15',
+            'ciudad' => 'Guadalajara',
+            'nombre' => 'Unid Campus Guadalajara',
+        ]);
     }
 }

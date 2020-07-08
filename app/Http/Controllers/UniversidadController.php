@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Entidad;
 use App\Universidad;
 
 class UniversidadController extends Controller
@@ -14,7 +15,7 @@ class UniversidadController extends Controller
      */
     public function index()
     {
-        $uni = Universidad::paginate(5);
+        $uni = Universidad::orderBy('nombre', 'ASC')->paginate(5);
         return view('Universidad.uniView', compact('uni'));
     }
 
@@ -25,7 +26,8 @@ class UniversidadController extends Controller
      */
     public function create()
     {
-        return view('Universidad.unicreate');
+        $enti = Entidad::all();
+        return view('Universidad.unicreate', compact('enti'));
     }
 
     /**
@@ -38,12 +40,14 @@ class UniversidadController extends Controller
     {
         $request->validate([
             'nombre'    =>'required',
+            'entidad_id'=>'required',
             'ciudad'    =>'required',
         ]);
 
         $nuevaUni = new Universidad;
-        $nuevaUni->nombre   = $request->nombre;
-        $nuevaUni->ciudad   = $request->ciudad;
+        $nuevaUni->nombre       = $request->nombre;
+        $nuevaUni->entidad_id   = $request->entidad_id;
+        $nuevaUni->ciudad       = $request->ciudad;
         $nuevaUni->save();
 
         return back()->with('mensaje', 'La Universidad a sido agregada correctamente');
@@ -68,8 +72,9 @@ class UniversidadController extends Controller
      */
     public function edit($id)
     {
+        $enti = Entidad::all();
         $uni = Universidad::findOrFail($id);
-        return view('Universidad.unieditar', compact('uni'));
+        return view('Universidad.unieditar', compact('uni','enti'));
     }
 
     /**
@@ -83,11 +88,13 @@ class UniversidadController extends Controller
     {
         $request->validate([
             'nombre'    => 'required',
+            'entidad_id'=>'required',
             'ciudad'    => 'required',
         ]);
 
         $uniactualizar = Universidad::findOrFail($id);
         $uniactualizar->nombre  = $request->nombre;
+        $uniactualizar->entidad_id  = $request->entidad_id;
         $uniactualizar->ciudad  = $request->ciudad;
         $uniactualizar->save();
 

@@ -17,6 +17,20 @@ Puesto - Editar
     @method('PUT')
     @csrf
 
+    @error('departamento_id')
+        <div class="alert alert-danger">
+            Se necesita un departamento
+        </div>
+    @enderror
+
+    <label>Nombre del departamento</label>
+    <select name="departamento_id" class="form-control mb-2">
+        <option value="{{$pues->departamento_id}}">{{$pues->departamento->nombre}}</option>
+        @foreach($depa as $item)
+            <option value="{{$item->id}}">{{$item->nombre}}</option>
+        @endforeach
+    </select>
+
     @error('nombre')
         <div class="alert alert-danger">
             El nombre del puesto es necesario

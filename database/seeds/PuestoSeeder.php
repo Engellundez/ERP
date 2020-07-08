@@ -13,19 +13,24 @@ class PuestoSeeder extends Seeder
     public function run()
     {
         DB::table('puestos')->insert([
-            'nombre' => 'Maestro',
+            'departamento_id'   => '1',
+            'nombre'            => 'Maestro',
         ]);
         DB::table('puestos')->insert([
-            'nombre' => 'Rector',
+            'departamento_id'   => '2',
+            'nombre'            => 'Rector',
         ]);
         DB::table('puestos')->insert([
-            'nombre' => 'Coordinador',
+            'departamento_id'   => '1',
+            'nombre'            => 'Coordinador',
         ]);
         DB::table('puestos')->insert([
-            'nombre' => 'Director de finanzas',
+            'departamento_id'   => '3',
+            'nombre'            => 'Director de finanzas',
         ]);
         DB::table('puestos')->insert([
-            'nombre' => 'Administrador',
+            'departamento_id'   => '4',
+            'nombre'            => 'Administrador',
         ]);
     }
 }

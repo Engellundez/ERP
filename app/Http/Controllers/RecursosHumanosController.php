@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Entidad;
+use App\Universidad;
 use App\Departamento;
 use App\puesto;
+use App\UniversidadDepartamentoPuesto;
 use App\RecursosHumanos;
-use App\Universidad;
 
 class RecursosHumanosController extends Controller
 {
@@ -18,7 +19,7 @@ class RecursosHumanosController extends Controller
      */
     public function index()
     {
-        $RH = RecursosHumanos::paginate(5);
+        $RH = RecursosHumanos::orderBy('nombre','ASC')->paginate(5);
         return view('rhView', compact('RH'));
     }
 
@@ -29,11 +30,11 @@ class RecursosHumanosController extends Controller
      */
     public function create()
     {
-        $dep = Departamento::all();
-        $enti = Entidad::all();
-        $pues = puesto::all();
-        $uni = Universidad::all();
-        return view('rhcreate', compact('enti','uni','pues','dep'));
+        $uni = Universidad::orderBy('nombre', 'ASC')->get();
+        $pues = puesto::orderBy('nombre', 'ASC')->get();
+        $udp = UniversidadDepartamentoPuesto::orderBy('id', 'DESC')->first('id');
+        $udp = $udp->id + 1;
+        return view('rhcreate', compact('uni','pues','udp'));
     }
 
     /**
@@ -45,35 +46,36 @@ class RecursosHumanosController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'entidad_id'        => 'required',
-            'universidad_id'    => 'required',
-            'departamento_id'   => 'required',
-            'puesto_id'         => 'required',
-            'presupuesto'       => 'required',
-            'nombre'            => 'required',
-            'apellido_paterno'  => 'required',
-            'apellido_materno'  => 'required',
-            'fecha_nacimiento'  => 'required',
-            'email'             => 'required',
-            'direccion'         => 'required',
-            'colonia'           => 'required',
-            'telefono'          => 'required',
+            'universidad_departamento_puesto_id'    => 'required',
+            'universidad_id'                        => 'required',
+            'puesto_id'                             => 'required',
+            'presupuesto'                           => 'required',
+            'nombre'                                => 'required',
+            'apellido_paterno'                      => 'required',
+            'apellido_materno'                      => 'required',
+            'fecha_nacimiento'                      => 'required',
+            'email'                                 => 'required',
+            'direccion'                             => 'required',
+            'colonia'                               => 'required',
+            'telefono'                              => 'required',
         ]);
         
+        $nuevoUniDepaPues = new UniversidadDepartamentoPuesto;
+        $nuevoUniDepaPues->universidad_id   = $request->universidad_id;
+        $nuevoUniDepaPues->puesto_id        = $request->puesto_id;
+        $nuevoUniDepaPues->save();
+
         $nuevoRH = new RecursosHumanos;
-        $nuevoRH->entidad_id        = $request->entidad_id;
-        $nuevoRH->universidad_id    = $request->universidad_id;
-        $nuevoRH->departamento_id   = $request->departamento_id;
-        $nuevoRH->puesto_id         = $request->puesto_id;
-        $nuevoRH->presupuesto       = $request->presupuesto;
-        $nuevoRH->nombre            = $request->nombre;
-        $nuevoRH->apellido_paterno  = $request->apellido_paterno;
-        $nuevoRH->apellido_materno  = $request->apellido_materno;
-        $nuevoRH->fecha_nacimiento  = $request->fecha_nacimiento;
-        $nuevoRH->email             = $request->email;
-        $nuevoRH->direccion         = $request->direccion;
-        $nuevoRH->colonia           = $request->colonia;
-        $nuevoRH->telefono          = $request->telefono;
+        $nuevoRH->presupuesto                           = $request->presupuesto;
+        $nuevoRH->nombre                                = $request->nombre;
+        $nuevoRH->apellido_paterno                      = $request->apellido_paterno;
+        $nuevoRH->apellido_materno                      = $request->apellido_materno;
+        $nuevoRH->fecha_nacimiento                      = $request->fecha_nacimiento;
+        $nuevoRH->email                                 = $request->email;
+        $nuevoRH->direccion                             = $request->direccion;
+        $nuevoRH->telefono                              = $request->telefono;
+        $nuevoRH->colonia                               = $request->colonia;
+        $nuevoRH->universidad_departamento_puesto_id    = $request->universidad_departamento_puesto_id;
         $nuevoRH->save();
 
         return back()->with('mensaje', '¡Usuario Agregado!');
@@ -99,12 +101,11 @@ class RecursosHumanosController extends Controller
     public function edit($id)
     {
         $rh = RecursosHumanos::findOrFail($id);        
-        $enti = Entidad::all();
-        $uni = Universidad::all();
-        $pues = puesto::all();
-        $dep = Departamento::all();
+        $uni = Universidad::orderBy('nombre', 'ASC')->get();
+        $pues = puesto::orderBy('nombre', 'ASC')->get();
+        $unidepapues = UniversidadDepartamentoPuesto::all();
 
-        return view('rheditar', compact('rh','enti','uni','pues','dep'));
+        return view('rheditar', compact('rh','uni','pues','unidepapues'));
     }
 
     /**
@@ -117,35 +118,36 @@ class RecursosHumanosController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'entidad_id'        => 'required',
-            'universidad_id'    => 'required',
-            'departamento_id'   => 'required',
-            'puesto_id'         => 'required',
-            'presupuesto'       => 'required',
-            'nombre'            => 'required',
-            'apellido_paterno'  => 'required',
-            'apellido_materno'  => 'required',
-            'fecha_nacimiento'  => 'required',
-            'email'             => 'required',
-            'direccion'         => 'required',
-            'colonia'           => 'required',
-            'telefono'          => 'required',
+            'universidad_departamento_puesto_id'    => 'required',
+            'universidad_id'                        => 'required',
+            'puesto_id'                             => 'required',
+            'presupuesto'                           => 'required',
+            'nombre'                                => 'required',
+            'apellido_paterno'                      => 'required',
+            'apellido_materno'                      => 'required',
+            'fecha_nacimiento'                      => 'required',
+            'email'                                 => 'required',
+            'direccion'                             => 'required',
+            'colonia'                               => 'required',
+            'telefono'                              => 'required',
         ]);
 
+        $udpupdate = UniversidadDepartamentoPuesto::findOrFail($request->universidad_departamento_puesto_id);
+        $udpupdate->universidad_id  = $request->universidad_id;
+        $udpupdate->puesto_id       = $request->puesto_id;
+        $udpupdate->save();
+
         $rhactualizar = RecursosHumanos::findOrFail($id);
-        $rhactualizar->entidad_id        = $request->entidad_id;
-        $rhactualizar->universidad_id    = $request->universidad_id;
-        $rhactualizar->departamento_id   = $request->departamento_id;
-        $rhactualizar->puesto_id         = $request->puesto_id;
-        $rhactualizar->presupuesto       = $request->presupuesto;
-        $rhactualizar->nombre            = $request->nombre;
-        $rhactualizar->apellido_paterno  = $request->apellido_paterno;
-        $rhactualizar->apellido_materno  = $request->apellido_materno;
-        $rhactualizar->fecha_nacimiento  = $request->fecha_nacimiento;
-        $rhactualizar->email             = $request->email;
-        $rhactualizar->direccion         = $request->direccion;
-        $rhactualizar->colonia           = $request->colonia;
-        $rhactualizar->telefono          = $request->telefono;
+        $rhactualizar->presupuesto                          = $request->presupuesto;
+        $rhactualizar->nombre                               = $request->nombre;
+        $rhactualizar->apellido_paterno                     = $request->apellido_paterno;
+        $rhactualizar->apellido_materno                     = $request->apellido_materno;
+        $rhactualizar->fecha_nacimiento                     = $request->fecha_nacimiento;
+        $rhactualizar->email                                = $request->email;
+        $rhactualizar->direccion                            = $request->direccion;
+        $rhactualizar->colonia                              = $request->colonia;
+        $rhactualizar->telefono                             = $request->telefono;
+        $rhactualizar->universidad_departamento_puesto_id   = $request->universidad_departamento_puesto_id;
         $rhactualizar->save();
 
         return back()->with('mensaje', 'Personal Actualizado');

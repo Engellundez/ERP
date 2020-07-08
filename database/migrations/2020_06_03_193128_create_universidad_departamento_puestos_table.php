@@ -16,11 +16,10 @@ class CreateUniversidadDepartamentoPuestosTable extends Migration
         Schema::create('universidad_departamento_puestos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('universidad_id');
-            $table->unsignedBigInteger('departamento_id');
             $table->unsignedBigInteger('puesto_id');
+            $table->timestamps();
 
             $table->foreign('universidad_id')->references('id')->on('universidads')->onUpdate('cascade');
-            $table->foreign('departamento_id')->references('id')->on('departamentos')->onUpdate('cascade');
             $table->foreign('puesto_id')->references('id')->on('puestos')->onUpdate('cascade');
         });
     }

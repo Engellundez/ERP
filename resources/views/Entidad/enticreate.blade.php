@@ -15,14 +15,14 @@ Entidad
 <br>
 <form action="{{route('enti_guardar')}}" method="POST">
     @csrf
-    @error('nombreEntidad')
+    @error('nombre')
         <div class="alert alert-danger">
             El nombre del Entidad es necesario
         </div>
     @enderror
 
     <label>Nombre del Entidad</label>
-    <input type="text" name="nombreEntidad" placeholder="Nombre del Entidad" class="form-control mb-2" value="{{old('nombreEntidad')}}">
+    <input type="text" name="nombre" placeholder="Nombre del Entidad" class="form-control mb-2" value="{{old('nombre')}}">
 
     <button type="submit" class="btn btn-success mb-2">Agregar Entidad</button>
 </form>

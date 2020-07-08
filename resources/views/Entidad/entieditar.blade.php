@@ -17,14 +17,14 @@ Entidad - Editar
     @method('PUT')
     @csrf
 
-    @error('nombreEntidad')
+    @error('nombre')
         <div class="alert alert-danger">
             El nombre del Entidad es necesario
         </div>
     @enderror
 
     <label>Nombre del Entidad</label>
-    <input type="text" name="nombreEntidad" placeholder="Nombre del Entidad" class="form-control mb-2" value="{{$enti->nombreEntidad}}">
+    <input type="text" name="nombre" placeholder="Nombre del Entidad" class="form-control mb-2" value="{{$enti->nombre}}">
 
     <button type="submit" class="btn btn-warning mb-2">Editar Entidad</button>
 </form>

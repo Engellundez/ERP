@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Departamento;
+use App\Universidad;
 
 class DepartamentoController extends Controller
 {
@@ -14,7 +15,7 @@ class DepartamentoController extends Controller
      */
     public function index()
     {
-        $depa = Departamento::paginate(5);
+        $depa = Departamento::orderBy('nombre','ASC')->paginate(5);
         return view('Departamento.depaView', compact('depa'));
     }
 

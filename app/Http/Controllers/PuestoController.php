@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Departamento;
 use App\Puesto;
 
 class PuestoController extends Controller
@@ -14,7 +15,7 @@ class PuestoController extends Controller
      */
     public function index()
     {
-        $pues = Puesto::paginate(5);
+        $pues = Puesto::orderBy('nombre', 'ASC')->paginate(5);
         return view('Puesto.puesView', compact('pues'));
     }
 
@@ -25,7 +26,8 @@ class PuestoController extends Controller
      */
     public function create()
     {
-        return view('Puesto.puescreate');
+        $depa = Departamento::orderBy('nombre', 'ASC')->get();
+        return view('Puesto.puescreate', compact('depa'));
     }
 
     /**
@@ -37,11 +39,13 @@ class PuestoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre' => 'required',
+            'departamento_id'   => 'required',
+            'nombre'            => 'required',
         ]);
 
         $nuevopues = new Puesto;
-        $nuevopues->nombre = $request->nombre;
+        $nuevopues->departamento_id = $request->departamento_id;
+        $nuevopues->nombre          = $request->nombre;
         $nuevopues->save();
 
         return back()->with('mensaje', 'El Puesto se agrego correctamente');
@@ -66,8 +70,9 @@ class PuestoController extends Controller
      */
     public function edit($id)
     {
+        $depa = Departamento::orderBy('nombre', 'ASC')->get();
         $pues = Puesto::findOrFail($id);
-        return view('Puesto.pueseditar', compact('pues'));
+        return view('Puesto.pueseditar', compact('pues','depa'));
     }
 
     /**
@@ -80,10 +85,12 @@ class PuestoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'nombre' => 'required',
+            'departamento_id'   => 'required',
+            'nombre'            => 'required',
         ]);
 
         $puesactualizar = Puesto::findOrFail($id);
+        $puesactualizar->departamento_id = $request->departamento_id;
         $puesactualizar->nombre = $request->nombre;
         $puesactualizar->save();
 
