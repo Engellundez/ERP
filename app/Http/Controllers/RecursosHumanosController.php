@@ -162,7 +162,10 @@ class RecursosHumanosController extends Controller
     public function destroy($id)
     {
         $rheliminar = RecursosHumanos::findOrFail($id);
+        $udpid = $rheliminar->universidad_departamento_puesto_id;
         $rheliminar->delete();
+        $udpeliminar= UniversidadDepartamentoPuesto::findOrFail($udpid);
+        $udpeliminar->delete();
         
         return back()->with('mensaje', 'Personal Eliminado');
     }
