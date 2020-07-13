@@ -18,5 +18,12 @@ class DatabaseSeeder extends Seeder
         $this->call(PuestoSeeder::class);
         $this->call(UniDepaPuesSeeder::class);
         $this->call(RecursosHumanosSeeder::class);
+
+        $this->call(CarrerasSeeder::class);
+        $this->call(GruposSeeder::class);
+        $this->call(AlumnosSeeder::class);
+        $this->call(AsignaturasSeeder::class);
+        $this->call(AsignaturasAlumnosSeeder::class);
+        $this->call(CalificacionesSeeder::class);
     }
 }

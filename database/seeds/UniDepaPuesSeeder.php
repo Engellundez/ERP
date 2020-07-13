@@ -18,11 +18,11 @@ class UniDepaPuesSeeder extends Seeder
         ]);
         DB::table('universidad_departamento_puestos')->insert([
             'universidad_id' => '2',
-            'puesto_id' => '2',
+            'puesto_id' => '1',
         ]);
         DB::table('universidad_departamento_puestos')->insert([
             'universidad_id' => '3',
-            'puesto_id' => '5',
+            'puesto_id' => '1',
         ]);
         DB::table('universidad_departamento_puestos')->insert([
             'universidad_id' => '3',
