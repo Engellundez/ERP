@@ -55,5 +55,27 @@ Route::put('Entidades/actualizar/{id}', 'EntidadController@update')->name('enti_
 Route::delete('Entidades/eliminar/{id}', 'EntidadController@destroy')->name('enti_eliminar');
 
 // CONTROL ESTUDIANTIL
+// CARRERA
+Route::get('Carreras', 'CarreraController@index')->name('carrera');
+Route::get('Carreras/Registrar', 'CarreraController@create')->name('carrera_create');
+Route::post('Carreras/Crear', 'CarreraController@store')->name('carrera_guardar');
+Route::get('Carreras/editar/{id}', 'CarreraController@edit')->name('carrera_editar');
+Route::put('Carreras/actualizar/{id}', 'CarreraController@update')->name('carrera_actualizar');
+Route::delete('Carreras/eliminar/{id}', 'CarreraController@destroy')->name('carrera_eliminar');
 
-// PERSONAL
+// Grupos
+Route::get('Grupo', 'GrupoController@index')->name('grupo');
+Route::get('Grupo/Registrar', 'GrupoController@create')->name('grupo_create');
+Route::post('Grupo/Crear', 'GrupoController@store')->name('grupo_guardar');
+Route::get('Grupo/editar{id}', 'GrupoController@edit')->name('grupo_editar');
+Route::put('Grupo/actualizar/{id}', 'GrupoController@update')->name('grupo_actualizar');
+Route::delete('}carreras/eliminar/{id}', 'GrupoController@destroy')->name('grupo_eliminar');
+
+// Alumnos
+Route::get('Alumnos', 'AlumnosController@index')->name('alumnos');
+Route::get('Alumnos/Registrar', 'AlumnosController@create')->name('alumnos_create');
+Route::post('Alumnos/crear', 'AlumnosController@store')->name('alumnos_guardar');
+Route::get('Alumnos/ver/{id}', 'AlumnosController@show')->name('alumnos_ver');
+Route::get('Alumnos/editar/{id}', 'AlumnosController@edit')->name('alumnos_editar');
+Route::put('Alumnos/actualizar/{id}', 'AlumnosController@update')->name('alumnos_actualizar');
+Route::delete('Alumnos/eliminar/{id}', 'AlumnosController@destroy')->name('alumnos_eliminar');

@@ -5,9 +5,7 @@ Recursos Humanos
 @endsection
 
 @section('content')
-<br>
-<h1>Recursos Humanos</h1>
-<br>
+<h1 class="my-3">Recursos Humanos</h1>
 <a href="{{ route('rh_create') }}"><button class="btn btn-success">Agregar</button></a>
 <br><br>
 

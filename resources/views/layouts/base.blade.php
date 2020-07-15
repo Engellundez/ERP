@@ -47,11 +47,11 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Estudiantes</a>
+                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Control Estudiantil</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Carrera</a>
-                        <a class="dropdown-item" href="#">Grupos</a>
-                        <a class="dropdown-item" href="#">Alumnos</a>
+                        <a class="dropdown-item" href="{{ route('carrera') }}">Carrera</a>
+                        <a class="dropdown-item" href="{{route('grupo')}}">Grupos</a>
+                        <a class="dropdown-item" href="{{route('alumnos')}}">Alumnos</a>
                         <a class="dropdown-item" href="#">Materias</a>
                         <a class="dropdown-item" href="#">Calificaciones</a>
                     </div>
