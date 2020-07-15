@@ -79,3 +79,24 @@ Route::get('Alumnos/ver/{id}', 'AlumnosController@show')->name('alumnos_ver');
 Route::get('Alumnos/editar/{id}', 'AlumnosController@edit')->name('alumnos_editar');
 Route::put('Alumnos/actualizar/{id}', 'AlumnosController@update')->name('alumnos_actualizar');
 Route::delete('Alumnos/eliminar/{id}', 'AlumnosController@destroy')->name('alumnos_eliminar');
+
+//vinculacion
+Route::get('Vinculacion', 'VinculacionController@index')->name('vinculacion');
+Route::get('Vinculacion/Registrar', 'VinculacionController@create')->name('vinculacion_create');
+Route::post('Vinculacion/crear', 'VinculacionController@store')->name('vinculacion_guardar');
+Route::get('Vinculacion/editar/{id}', 'VinculacionController@edit')->name('vinculacion_editar');
+Route::put('Vinculacion/actualizar/{id}', 'VinculacionController@update')->name('vinculacion_actualizar');
+Route::delete('Vinculacion/eliminar/{id}', 'VinculacionController@destroy')->name('vinculacion_eliminar');
+
+// Asignatura
+Route::get('Asignatura', 'AsignaturaController@index')->name('asignatura');
+Route::get('Asignatura/registar', 'AsignaturaController@create')->name('asignatura_create');
+Route::post('Asignatura/crear', 'AsignaturaController@store')->name('asignatura_guardar');
+Route::get('Asignatura/editar/{id}', 'AsignaturaController@edit')->name('asignatura_editar');
+Route::put('Asignatura/actualizar/{id}', 'AsignaturaController@update')->name('asignatura_actualizar');
+Route::delete('Asignatura/eliminar/{id}', 'AsignaturaController@destroy')->name('asignatura_eliminar');
+
+// calificaciones
+Route::get('Calificacion', 'CalificacionController@index')->name('calificacion');
+Route::get('Calificacion/editar/{id}', 'CalificacionController@edit')->name('calificacion_editar');
+Route::put('Calificacion/actualizar/{id}', 'CalificacionController@update')->name('calificacion_actualizar');

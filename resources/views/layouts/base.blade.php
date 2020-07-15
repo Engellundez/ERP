@@ -52,8 +52,9 @@
                         <a class="dropdown-item" href="{{ route('carrera') }}">Carrera</a>
                         <a class="dropdown-item" href="{{route('grupo')}}">Grupos</a>
                         <a class="dropdown-item" href="{{route('alumnos')}}">Alumnos</a>
-                        <a class="dropdown-item" href="#">Materias</a>
-                        <a class="dropdown-item" href="#">Calificaciones</a>
+                        <a class="dropdown-item" href="{{route('vinculacion')}}">Vinculación de Alumnos con sus materias</a>
+                        <a class="dropdown-item" href="{{route('asignatura')}}">Materias</a>
+                        <a class="dropdown-item" href="{{route('calificacion')}}">Calificaciones</a>
                     </div>
                 </li>
             </ul>

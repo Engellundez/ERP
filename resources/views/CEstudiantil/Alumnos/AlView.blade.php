@@ -5,7 +5,7 @@ Alumnos
 @endsection
 
 @section('content')
-<h1 class="my-3"></h1>
+<h1 class="my-3">Alumnos</h1>
 <a href="{{route('alumnos_create')}}"><button class="btn btn-success">Agregar Alumno</button></a>
 
 @if(session('mensaje'))

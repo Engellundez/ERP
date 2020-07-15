@@ -41,6 +41,7 @@
                 <th>Parcial 2</th>
                 <th>Parcial 3</th>
                 <th>Calificacion Final</th>
+                <th>Actualizar</th>
             </tr>
         </thead>
         <tbody>
@@ -76,6 +77,8 @@
                     @else
                     <td>Sin Asignar</td>
                     @endif
+
+                    <td><a href="{{route('calificacion_editar', $calificacion)}}"><button class="btn btn-primary btn-sm">Agregar/Editar Calificacion</button></a></td>
                 </tr>
                 @endforeach
             @endif
