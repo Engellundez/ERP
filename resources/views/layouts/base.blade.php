@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap 4 -->
@@ -18,11 +19,34 @@
     </script>
     <!-- fin bootstrap 4 -->
     <title>@yield('title')</title>
+<style type="text/css">
+#grande {
+    font-size: 15px;
+    text-align: left;
+    width:190px;
+    height:50px;
+}
+.fondo{
+    background-image: url("imagenes/portada.jpg");
+    -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+    
+}
+.navbar-brand{
+    color: 
+}
+</style>    
+    
+
 </head>
 
-<body>
+<body class="fondo">
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand">Universidad Occidental</a>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,31 +54,41 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('inicio') }}">Inicio</a>
+                    <a class="btn btn-success" href="{{ route('inicio') }}">Inicio</a>
                 </li>
+                <br>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('rh') }}">Recursos Humanos</a>
+                    <a class="btn btn-warning" href="{{ route('rh') }}">Recursos Humanos</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Universidad</a>
+                    <a class="btn btn-primary dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Universidad</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('enti') }}">Entidades</a>
-                        <a class="dropdown-item" href="{{ route('uni') }}">Universidades</a>
-                        <a class="dropdown-item" href="{{ route('depa') }}">Departamentos</a>
-                        <a class="dropdown-item" href="{{ route('pues') }}">Puestos</a>
+                        <a class="btn btn-outline-primary" href="{{ route('enti') }}">Entidades</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="btn btn-outline-warning" href="{{ route('uni') }}">Universidades</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="btn btn-outline-info" href="{{ route('depa') }}">Departamentos</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="btn btn-outline-dark " href="{{ route('pues') }}">Puestos</a>
+
                         <!-- <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Something else here</a> -->
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Control Estudiantil</a>
+                    <a class="btn btn-danger dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Control Estudiantil</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('carrera') }}">Carrera</a>
-                        <a class="dropdown-item" href="{{route('grupo')}}">Grupos</a>
-                        <a class="dropdown-item" href="{{route('alumnos')}}">Alumnos</a>
-                        <a class="dropdown-item" href="{{route('vinculacion')}}">Vinculación de Alumnos con sus materias</a>
-                        <a class="dropdown-item" href="{{route('asignatura')}}">Materias</a>
-                        <a class="dropdown-item" href="{{route('calificacion')}}">Calificaciones</a>
+                        <a class="btn btn-outline-primary" href="{{ route('carrera') }}">Carrera</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="btn btn-outline-secondary" href="{{route('grupo')}}">Grupos</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="btn btn-outline-danger" href="{{route('alumnos')}}">Alumnos</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="btn btn-outline-warning" id="grande"  href="{{route('vinculacion')}}">Vinculación de Alumnos con sus materias</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="btn btn-outline-info" href="{{route('asignatura')}}">Materias</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="btn btn-outline-dark" href="{{route('calificacion')}}">Calificaciones</a>
                     </div>
                 </li>
             </ul>

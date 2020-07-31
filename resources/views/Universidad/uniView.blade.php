@@ -18,7 +18,7 @@ Universidades
 @endif
 
 <div class="table-responsive">
-    <table class="table">
+    <table class="table table-hover table-dark">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Nombre de la Universidad</th>

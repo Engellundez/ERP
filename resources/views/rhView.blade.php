@@ -16,8 +16,13 @@ Recursos Humanos
 @endif
 
 <div class="table-responsive">
-    <table class="table">
+    <table class="table table-hover table-dark">
         <thead class="thead-dark">
+            {
+                saasd{
+                
+            }
+            }
             <tr>
                 <th scope="col">Entidad Federativa</th>
                 <th scope="col">Universidad</th>

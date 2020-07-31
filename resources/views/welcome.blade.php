@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+<body  background="portada.jpg">
+    
     <br>
     <br>
     <br>
@@ -12,5 +14,23 @@
     <br>
     <br>
     <br>
-    <h1>ERP DE UNIVERSIDAD OCCIDENTAL</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <h1 class="">ERP DE UNIVERSIDAD OCCIDENTAL</h1>
+    
 @endsection
