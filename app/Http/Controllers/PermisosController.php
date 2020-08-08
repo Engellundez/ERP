@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\rolpermiso;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermisosController extends Controller
 {
@@ -13,7 +16,8 @@ class PermisosController extends Controller
      */
     public function index()
     {
-        //
+        $permisos = Permission::orderBy('name', 'ASC')->paginate(5);
+        return view('Permisos.permisosview', compact('permisos'));
     }
 
     /**
@@ -23,7 +27,7 @@ class PermisosController extends Controller
      */
     public function create()
     {
-        //
+        return view('Permisos.permisoscrear');
     }
 
     /**
@@ -34,7 +38,18 @@ class PermisosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'          => 'required',
+            'description'   => 'required',
+        ]);
+
+        $newpermiso = new Permission;
+        $newpermiso->name       = $request->name;
+        $newpermiso->guard_name = 'web';
+        $newpermiso->description= $request->description;
+        $newpermiso->save();
+
+        return redirect()->route('permisos')->with('info', 'El permiso se ha creado');
     }
 
     /**
@@ -56,7 +71,8 @@ class PermisosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $permiso = Permission::findOrFail($id);
+        return view('Permisos.permisoseditar', compact('permiso'));
     }
 
     /**
@@ -68,7 +84,17 @@ class PermisosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'          => 'required',
+            'description'   => 'required',
+        ]);
+
+        $permisoupdate = Permission::findOrFail($id);
+        $permisoupdate->name            = $request->name;
+        $permisoupdate->description     = $request->description;
+        $permisoupdate->save();
+
+        return back()->with('mensaje', 'El permiso ha sido actualizado');
     }
 
     /**
@@ -79,6 +105,9 @@ class PermisosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $permiso = Permission::findOrFail($id);
+        $permiso->delete();
+
+        return back()->with('mensaje', 'El permiso ha sido Eliminado');
     }
 }

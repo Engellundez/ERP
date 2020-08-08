@@ -41,7 +41,9 @@
                 <th>Parcial 2</th>
                 <th>Parcial 3</th>
                 <th>Calificacion Final</th>
-                <th>Actualizar</th>
+                @role('super-usuario|admin')
+                    <th>Actualizar</th>
+                @endrole
             </tr>
         </thead>
         <tbody>
@@ -78,7 +80,9 @@
                     <td>Sin Asignar</td>
                     @endif
 
-                    <td><a href="{{route('calificacion_editar', $calificacion)}}"><button class="btn btn-primary btn-sm">Agregar/Editar Calificacion</button></a></td>
+                    @role('super-usuario|admin')
+                        <td><a href="{{route('calificacion_editar', $calificacion)}}"><button class="btn btn-primary btn-sm">Agregar/Editar Calificacion</button></a></td>
+                    @endrole
                 </tr>
                 @endforeach
             @endif

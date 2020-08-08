@@ -37,36 +37,44 @@ class UserRolSeeder extends Seeder
         DB::table('roles')->insert([
             'name'          => 'super-usuario',
             'guard_name'    => 'web',
+            'description'   => 'El Super Usuario tiene el poder de hacer lo que le plasca y entrar a donde quiera',
         ]);
         DB::table('roles')->insert([
             'name'          => 'admin',
             'guard_name'    => 'web',
+            'description'   => 'El Admin puede hacer la mayor cantidad de cosas excepot registrar usuarios',
         ]);
         DB::table('roles')->insert([
             'name'          => 'invitado',
             'guard_name'    => 'web',
+            'description'   => 'El Invitado solo puede ver las tablas sin poder modificarlas agregar o eliminar',
         ]);
         DB::table('roles')->insert([
             'name'          => 'vetado',
             'guard_name'    => 'web',
+            'description'   => 'No tiene ningun acceso al sistema',
         ]);
 
         // Permisos
         DB::table('permissions')->insert([
-            'name'          => 'full-access',
+            'name'          => 'Completo',
             'guard_name'    => 'web',
+            'description'   => 'Accesso completo',
         ]);
         DB::table('permissions')->insert([
             'name'          => 'Normal',
             'guard_name'    => 'web',
+            'description'   => 'Accesso Normal',
         ]);
         DB::table('permissions')->insert([
-            'name'          => 'guest',
+            'name'          => 'invitado',
             'guard_name'    => 'web',
+            'description'   => 'Invitado',
         ]);
         DB::table('permissions')->insert([
-            'name'          => 'no-access',
+            'name'          => 'Sin-Acceso',
             'guard_name'    => 'web',
+            'description'   => 'No puede hacer nada',
         ]);
 
         // roles con permisos

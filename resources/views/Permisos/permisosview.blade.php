@@ -1,7 +1,7 @@
 @extends('layouts.base')
 
 @section('title')
-Roles
+Permisos
 @endsection
 
 @section('content')
@@ -16,9 +16,9 @@ Roles
         {{session('info')}}
     </div>
 @endif
-<h1 class="my-3">Roles</h1>
+<h1 class="my-3">Permisos</h1>
 @role('super-usuario')
-    <a class="my-3" href="{{ route('roles_create') }}"><button class="btn btn-success">Agregar rol</button></a>
+    <a class="my-3" href="{{ route('permisos_create') }}"><button class="btn btn-success">Agregar Permiso</button></a>
 @endrole
 
 
@@ -28,28 +28,22 @@ Roles
             <tr>
                 <th scope="col">Nombre</th>
                 <th scope="col">Descripcion</th>
-                <th scope="col">Permisos</th>
                 @role('super-usuario')
                     <th colspan="2" scope="col">Acciones</th>
                 @endrole
             </tr>
         </thead>
         <tbody>
-            @foreach($roles as $rol)
+            @foreach($permisos as $permiso)
                 <tr>
-                    <th scope="row">{{$rol->name}}</th>
-                    <td>{{$rol->description}}</td>
-                    <td>
-                        @foreach($rol->permissions as $permission)
-                            {{ $loop->last ? $permission->name : $permission->name .","}}
-                        @endforeach
-                    </td>
+                    <th scope="row">{{$permiso->name}}</th>
+                    <td>{{$permiso->description}}</td>
                     @role('super-usuario')
                         <td>
-                            <a href="{{route('roles_editar', $rol)}}"><button class="btn btn-primary btn-sm">Editar</button></a>
+                            <a href="{{route('permisos_editar', $permiso)}}"><button class="btn btn-primary btn-sm">Editar</button></a>
                         </td>
                         <td>
-                        <form action="{{route('roles_eliminar', $rol)}}" method="POST">
+                        <form action="{{route('permisos_eliminar', $permiso)}}" method="POST">
                             @method('DELETE')
                             @csrf
                             <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
@@ -61,5 +55,5 @@ Roles
         </tbody>
     </table>
 </div>
-{{$roles->links()}}
+{{$permisos->links()}}
 @endsection

@@ -88,7 +88,7 @@ class UniversidadController extends Controller
     {
         $request->validate([
             'nombre'    => 'required',
-            'entidad_id'=>'required',
+            'entidad_id'=> 'required',
             'ciudad'    => 'required',
         ]);
 

@@ -6,7 +6,9 @@ Vinculacion
 
 @section('content')
 <h1 class="my-3">Vinculacion</h1>
-<a href="{{route('vinculacion_create')}}"><button class="btn btn-success">Agregar Vinculacion</button></a>
+@role('super-usuario|admin')
+    <a href="{{route('vinculacion_create')}}"><button class="btn btn-success">Agregar Vinculacion</button></a>
+@endrole
 
 @if(session('mensaje'))
 <div class="alert alert-danger my-3">{{session('mensaje')}}</div>
@@ -23,7 +25,9 @@ Vinculacion
                 <th>Maestro</th>
                 <th>Horario</th>
                 <th>Dias</th>
-                <th colspan="2">Acciones</th>
+                @role('super-usuario|admin')
+                    <th colspan="2">Acciones</th>
+                @endrole
             </tr>
         </thead>
         <tbody>
@@ -36,12 +40,18 @@ Vinculacion
                 <td>{{$aa->asignatura->recursoshumanos->nombre}} {{$aa->asignatura->recursoshumanos->apellido_paterno}} {{$aa->asignatura->recursoshumanos->apellido_materno}}</td>
                 <td>{{$aa->asignatura->inicio_clase}} - {{$aa->asignatura->fin_clase}}</td>
                 <td>{{$aa->asignatura->dias_imparticion}}</td>
-                <td><a href="{{route('vinculacion_editar', $aa)}}"><button class="btn btn-primary btn-sm">Editar</button></a></td>
-                <td><form action="{{route('vinculacion_eliminar', $aa)}}" method="post">
-                @method('DELETE')
-                @csrf
-                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                </form></td>
+                @role('super-usuario|admin')
+                    <td>
+                        <a href="{{route('vinculacion_editar', $aa)}}"><button class="btn btn-primary btn-sm">Editar</button></a>
+                    </td>
+                    <td>
+                        <form action="{{route('vinculacion_eliminar', $aa)}}" method="post">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </td>
+                @endrole
             </tr>
             @endforeach
         </tbody>

@@ -21,7 +21,9 @@ Calificaciones
                 <th>parcial 2</th>
                 <th>parcial 3</th>
                 <th>Calificacion Final</th>
-                <th>Actualizar</th>
+                @role('super-usuario|admin')
+                    <th>Actualizar</th>
+                @endrole
             </tr>
         </thead>
         <tbody>
@@ -33,7 +35,11 @@ Calificaciones
                 <td>{{$cal->parcial2}}</td>
                 <td>{{$cal->parcial3}}</td>
                 <td>{{$cal->calificacion_final}}</td>
-                <td><a href="{{route('calificacion_editar', $cal)}}"><button class="btn btn-primary btn-sm">Agregar/Editar Calificacion</button></a></td>
+                @role('super-usuario|admin')
+                    <td>
+                        <a href="{{route('calificacion_editar', $cal)}}"><button class="btn btn-primary btn-sm">Agregar/Editar Calificacion</button></a>
+                    </td>
+                @endrole
             </tr>
             @endforeach
         </tbody>

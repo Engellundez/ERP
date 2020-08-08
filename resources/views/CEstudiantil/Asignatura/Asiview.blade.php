@@ -6,7 +6,9 @@ Asignatura
 
 @section('content')
 <h1 class="my-3">Asignaturas</h1>
-<a href="{{route('asignatura_create')}}"><button class="btn btn-success">Agregar Asignaturas</button></a>
+@role('super-usuario|admin')
+    <a href="{{route('asignatura_create')}}"><button class="btn btn-success">Agregar Asignaturas</button></a>
+@endrole
 
 @if(session('mensaje'))
 <div class="alert alert-danger my-2">{{session('mensaje')}}</div>
@@ -22,7 +24,9 @@ Asignatura
                 <th>Hora de Inicio</th>
                 <th>Hora de Fin</th>
                 <th>Dias Que se imparte</th>
-                <th colspan="2">Acciones</th>
+                @role('super-usuario|admin')
+                    <th colspan="2">Acciones</th>
+                @endrole
             </tr>
         </thead>
         <tbody>
@@ -34,12 +38,18 @@ Asignatura
                 <td>{{$asi->inicio_clase}}</td>
                 <td>{{$asi->fin_clase}}</td>
                 <td>{{$asi->dias_imparticion}}</td>
-                <td><a href="{{route('asignatura_editar', $asi)}}"><button class="btn btn-primary btn-sm">Editar</button></a></td>
-                <td><form action="{{route('asignatura_eliminar', $asi)}}" method="post">
-                    @method('DELETE')
-                    @CSRF
-                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                </form></td>
+                @role('super-usuario|admin')
+                    <td>
+                        <a href="{{route('asignatura_editar', $asi)}}"><button class="btn btn-primary btn-sm">Editar</button></a>
+                    </td>
+                    <td>
+                        <form action="{{route('asignatura_eliminar', $asi)}}" method="post">
+                            @method('DELETE')
+                            @CSRF
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </td>
+                @endrole
             </tr>
             @endforeach
         </tbody>

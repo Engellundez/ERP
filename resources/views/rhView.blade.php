@@ -6,7 +6,9 @@ Recursos Humanos
 
 @section('content')
 <h1 class="my-3">Recursos Humanos</h1>
-<a href="{{ route('rh_create') }}"><button class="btn btn-success">Agregar</button></a>
+@role('super-usuario|admin')
+    <a href="{{ route('rh_create') }}"><button class="btn btn-success">Agregar</button></a>
+@endrole
 <br><br>
 
 @if(session('mensaje'))
@@ -18,11 +20,6 @@ Recursos Humanos
 <div class="table-responsive">
     <table class="table table-hover table-dark">
         <thead class="thead-dark">
-            {
-                saasd{
-                
-            }
-            }
             <tr>
                 <th scope="col">Entidad Federativa</th>
                 <th scope="col">Universidad</th>
@@ -33,7 +30,9 @@ Recursos Humanos
                 <th scope="col">Correo</th>
                 <th scope="col">Dirección</th>
                 <th scope="col">Telefono</th>
-                <th colspan="2" scope="col">Acciones</th>
+                @role('super-usuario|admin')
+                    <th colspan="2" scope="col">Acciones</th>
+                @endrole
             </tr>
         </thead>
         <tbody>
@@ -48,16 +47,18 @@ Recursos Humanos
                 <td>{{$item->email}}</td>
                 <td>{{$item->colonia}} {{$item->direccion}}</td>
                 <td>{{$item->telefono}}</td>
-                <td>
-                    <a href="{{route('rh_editar', $item)}}"><button class="btn btn-primary btn-sm">Editar</button></a>
-                </td>
-                <td>
-                    <form action="{{route('rh_eliminar', $item)}}" method="POST">
-                        @method('DELETE')
-                        @csrf
-                        <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
-                    </form>
-                </td>
+                @role('super-usuario|admin')
+                    <td>
+                        <a href="{{route('rh_editar', $item)}}"><button class="btn btn-primary btn-sm">Editar</button></a>
+                    </td>
+                    <td>
+                        <form action="{{route('rh_eliminar', $item)}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                        </form>
+                    </td>
+                @endrole
             </tr>
             @endforeach
         </tbody>

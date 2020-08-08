@@ -28,7 +28,7 @@
         }
 
         .fondo {
-            background-image: url("imagenes/portada.jpg");
+            background-image: url("../../../imagenes/portada.jpg");
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -58,7 +58,7 @@
             @guest
 
             @else
-                @can('guest')
+                @can('invitado')
                     <ul class="navbar-nav">
                         <li class="nav-item active">
                             <a class="btn btn-primary mx-3" href="{{ route('inicio') }}">Inicio</a>
@@ -95,7 +95,7 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="btn btn-outline-primary" id="grande" href="{{route('vinculacion')}}">Vinculación de
                                     Alumnos con sus materias</a>
-                                <div class="dropdown-div}ider"></div>
+                                <div class="dropdown-divider"></div>
                                 <a class="btn btn-outline-primary" href="{{route('asignatura')}}">Materias</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="btn btn-outline-primary" href="{{route('calificacion')}}">Calificaciones</a>
@@ -105,9 +105,11 @@
                             <a class="btn btn-primary mx-3 dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Roles y Usuarios</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="btn btn-outline-primary" href="{{route('users')}}">Usuarios</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="btn btn-outline-primary" href="{{ route('roles') }}">Roles</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="btn btn-outline-primary" href="{{route('users')}}">Usuarios</a>
+                                <a class="btn btn-outline-primary" href="{{route('permisos')}}">Permisos</a>
                             </div>
                         </li>
                     </ul>
