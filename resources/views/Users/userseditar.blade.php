@@ -37,11 +37,6 @@ Editar a {{$user->name}}
     
     <input type="text" disabled="true" class="form-control mb-2" value="Roles: @foreach($user->roles as $rol){{ $loop->last ? $rol->name : $rol->name .','}}@endforeach">
     
-    @error('roles')
-        <div class="alert alert-danger">
-            Escoge minimo un Rol
-        </div>
-    @enderror
     <div class="form-group" style="text-align:left;">
         <ul class="list-unstyled">
             @foreach($roles as $rol)

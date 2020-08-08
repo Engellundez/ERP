@@ -37,11 +37,6 @@ Editar a {{$user->name}}
     
     <input type="text" disabled="true" class="form-control mb-2" value="Permisos: @foreach($user->permissions as $permiso){{ $loop->last ? $permiso->name : $permiso->name .','}}@endforeach">
     
-    @error('permisos')
-        <div class="alert alert-danger">
-            Escoge minimo 1 permiso
-        </div>
-    @enderror
     <div class="form-group" style="text-align:left;">
         <ul class="list-unstyled">
             @foreach($permisos as $permiso)

@@ -36,12 +36,6 @@ Editar a {{$rol->name}}
     <h3>Lista de permisos</h3>
     
     <input type="text" disabled="true" class="form-control mb-2" value="Roles: @foreach($rol->permissions as $permission){{ $loop->last ? $permission->name : $permission->name .','}}@endforeach">
-    
-    @error('permissions')
-        <div class="alert alert-danger">
-            Escoge minimo 1 permiso
-        </div>
-    @enderror
 
     <div class="form-group" style="text-align:left;">
         <ul class="list-unstyled">

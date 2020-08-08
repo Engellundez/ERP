@@ -98,7 +98,7 @@ class RolesController extends Controller
         $request->validate([
             'name'          => 'required',
             'description'   => 'required',
-            'permissions'   => 'required|array',
+            'permissions'   => 'array',
         ]);
 
         // actualizar Rol

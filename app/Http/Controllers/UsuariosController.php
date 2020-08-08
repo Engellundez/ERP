@@ -102,7 +102,7 @@ class UsuariosController extends Controller
         $request->validate([
             'name'  => 'required',
             'email' => 'required',
-            'roles' => 'required|array',
+            'roles' => 'array',
         ]);
         //actualizar el usuario
         $userupdate = User::findOrFail($id);
@@ -111,11 +111,9 @@ class UsuariosController extends Controller
         $userupdate->save();
 
         // actualizar Roles
-        $modelo = model_has_role::where('model_id', $id);
-        $modelo->delete();
 
         $user = User::findOrFail($id);
-        $user->AssignRole($request->roles); // Asigna roles a un usuario
+        $user->syncRoles($request->roles); // Asigna roles a un usuario
 
         return back()->with('mensaje', 'El Usuario y sus roles se han actualizado');
     }
@@ -144,12 +142,9 @@ class UsuariosController extends Controller
     public function permisoupdate(Request $request, $id)
     {
         $request->validate([
-            'permisos'  => 'required|array',
+            'permisos'  => 'array',
         ]);
         // actualizar los permisos
-        // $modelopermiso = model_has_pesrmission::where('model_id', $id);
-        // $modelopermiso->delete();
-
         $user = User::findOrFail($id);
         $user->syncPermissions($request->permisos);
         return back()->with('mensaje', 'El usuario ha sido actualizado con nuevos permisos');
