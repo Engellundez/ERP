@@ -26,7 +26,20 @@
             width: 190px;
             height: 50px;
         }
-
+        #inicioo {
+            margin-left: auto;
+            margin-bottom: auto;
+        }
+        #usu {
+            font-size: 15px;
+        }
+        #botons {
+            font-size: 13px;
+            font-weight: 10px;
+            font-size-adjust: number;
+             width: 150px;
+            height: 40px;
+        }
         .fondo {
             background-image: url("../../../imagenes/portada.jpg");
             -webkit-background-size: cover;
@@ -61,55 +74,55 @@
                 @can('invitado')
                     <ul class="navbar-nav">
                         <li class="nav-item active">
-                            <a class="btn btn-primary mx-3" href="{{ route('inicio') }}">Inicio</a>
+                            <a class="btn btn-secondary mx-3" href="{{ route('inicio') }}">Inicio</a>
                         </li>
                         <br>
                         <li class="nav-item active">
-                            <a class="btn btn-primary mx-3" href="{{ route('rh') }}">Recursos Humanos</a>
+                            <a id="botons" class="btn btn-warning" href="{{ route('rh') }}">Recursos Humanos</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="btn btn-primary mx-3 dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="btn btn-success mx-3 dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Universidad</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="btn btn-outline-primary" href="{{ route('enti') }}">Entidades</a>
+                                <a class="btn btn-outline-black" href="{{ route('enti') }}">Entidades</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="btn btn-outline-primary" href="{{ route('uni') }}">Universidades</a>
+                                <a class="btn btn-outline-black" href="{{ route('uni') }}">Universidades</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="btn btn-outline-primary" href="{{ route('depa') }}">Departamentos</a>
+                                <a class="btn btn-outline-black" href="{{ route('depa') }}">Departamentos</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="btn btn-outline-primary " href="{{ route('pues') }}">Puestos</a>
+                                <a class="btn btn-outline-dblackark " href="{{ route('pues') }}">Puestos</a>
 
                                 <!-- <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="#">Something else here</a> -->
                             </div>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="btn btn-primary mx-3 dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            <a class="btn btn-info  dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Control Estudiantil</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="btn btn-outline-primary" href="{{ route('carrera') }}">Carrera</a>
+                                <a class="btn btn-outline-black" href="{{ route('carrera') }}">Carrera</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="btn btn-outline-primary" href="{{route('grupo')}}">Grupos</a>
+                                <a class="btn btn-outline-black" href="{{route('grupo')}}">Grupos</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="btn btn-outline-primary" href="{{route('alumnos')}}">Alumnos</a>
+                                <a class="btn btn-outline-black" href="{{route('alumnos')}}">Alumnos</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="btn btn-outline-primary" id="grande" href="{{route('vinculacion')}}">Vinculación de
+                                <a class="btn btn-outline-black" id="grande" href="{{route('vinculacion')}}">Vinculación de
                                     Alumnos con sus materias</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="btn btn-outline-primary" href="{{route('asignatura')}}">Materias</a>
+                                <a class="btn btn-outline-black" href="{{route('asignatura')}}">Materias</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="btn btn-outline-primary" href="{{route('calificacion')}}">Calificaciones</a>
+                                <a class="btn btn-outline-black" href="{{route('calificacion')}}">Calificaciones</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="btn btn-primary mx-3 dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Roles y Usuarios</a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="btn btn-outline-primary" href="{{route('users')}}">Usuarios</a>
+                                <a class="btn btn-outline-black" href="{{route('users')}}">Usuarios</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="btn btn-outline-primary" href="{{ route('roles') }}">Roles</a>
+                                <a class="btn btn-outline-black" href="{{ route('roles') }}">Roles</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="btn btn-outline-primary" href="{{route('permisos')}}">Permisos</a>
+                                <a class="btn btn-outline-black" href="{{route('permisos')}}">Permisos</a>
                             </div>
                         </li>
                     </ul>
@@ -126,11 +139,11 @@
                 <!-- Authentication Links -->
                 @guest
                 <li class="nav-item">
-                    <a class="btn btn-primary" href="{{ route('login') }}">Iniciar Sesión</a>
+                    <a class="btn btn-info" href="{{ route('login') }}">Iniciar Sesión</a>
                 </li>
                 @else
-                <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                <li  class="nav-item dropdown">
+                    <a id="usu" class="badge badge-pill badge-light" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }} <span class="caret"></span>
                     </a>
