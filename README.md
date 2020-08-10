@@ -68,4 +68,4 @@ Todos los archivos de **spatie** los encontras en la carpeta ***vendor/spatie/la
 <h2 align="center">Colaboradore</h2>
 Desarrollador en jefe: [Angel Lundez](https://github.com/Engellundez "Angel Lundez")
 Diseñador de vistas: [Mauricio Diaz](https://github.com/Blasko "Mauricio ")
-Bases de datos: [Mario Sanchez](https://github.com/Marioalsr "Mario Sanchez") y [Fernando Porras](https://github.com/Porras2201 "Fernando Porras")
+Bases de datos: [Mario Sanchez](https://github.com/Marioalsr "Mario Sanchez") y [Fernando Porras](https://github.com/Porras2201 "Fernando Porras").
