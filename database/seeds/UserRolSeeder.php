@@ -14,7 +14,7 @@ class UserRolSeeder extends Seeder
         // USERS
         DB::table('users')->insert([
             'name' => 'Angel David Escutia Lundez',
-            'email' => 'blu_mr.conejo@hotmail.com',
+            'email' => 'angel@hotmail.com',
             'password' => Hash::make('123456789D'),
         ]);
         DB::table('users')->insert([

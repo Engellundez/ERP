@@ -37,7 +37,7 @@ class AlumnosSeeder extends Seeder
             'fecha_nacimiento'  => '1996/12/01',
             'grupo_id'          => '9',
             'universidad_id'    => '1',
-            'correo'            => 'hippos_corner@gmail.com',
+            'correo'            => 'Mau_olarra@gmail.com',
         ]);
         DB::table('alumnos')->insert([
             'nombre'            => 'Jesus',

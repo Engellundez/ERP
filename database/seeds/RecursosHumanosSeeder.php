@@ -19,7 +19,7 @@ class RecursosHumanosSeeder extends Seeder
             'apellido_paterno' => 'Escutia',
             'apellido_materno' => 'Lundez',
             'fecha_nacimiento' => '1999-01-23',
-            'email' => 'angel.lundez@hotmail.com',
+            'email' => 'angel@hotmail.com',
             'direccion' => 'aramen #541',
             'telefono' => '4433867825',
             'colonia' => 'felix ireta',

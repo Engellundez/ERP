@@ -1,79 +1,71 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center"><img src="https://www.eicomunicacion.com/wp-content/uploads/2019/06/logo-UNID-300x135.png" width="250"></p><h1 align="center">Bienvenidos a ERP</h1>Este proyecto nace como un trabajo escolar desarrollado en [Laravel 7.14.1](https://laravel.com/docs/7.x "Laravel 7.14.1") la version más reciente al momento de la publicacion de este repositorio con ciertas espesificaciones de uso.
+<h2 align="center">Instalación</h2>
+####Requerimientos
+1. [Composer](http://getcomposer.org "Composer")
+2. PHP en su versión [7.2.5 o más reciente](https://www.php.net/downloads.php "7.2.5 o más reciente")
+3. [Git Bash](https://git-scm.com/downloads "Git Bash")
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+###Clonarlo
+```bash
+git clone https://github.com/Engellundez/ERP.git
+```
+Despues de clonarlo deberas copiar el contenido que hay en el archivo **.env.exemple** o en su defecto renombrar este archivo como **.env**.
+####Instalar dependenncias
+```bash
+cd ERP
+```
+```bash
+composer install
+```
+```bash
+php artisan key:generate
+```
+despues de correr estos comandos es necesario crear la base de datos con el nombre **unioccidente** o en su defecto renombrarla en el archivo **.env**:
+```php
+DB_CONNECTION=mysql				 //Manejador de base de datos
+DB_HOST=127.0.0.1						//Ruta del localhost
+DB_PORT=3306							 //Puerto que se usa
+DB_DATABASE=unioccidente	   //Nombre de la base de datos
+DB_USERNAME=root				   //Usuario en el manejador
+DB_PASSWORD=						 //contraseña del usuario en el manejador
+```
+Una vez que allas creado tu base de datos es momento de correr las migracones con el comando:
+```bash
+php artisan migrate:fresh --seed
+```
+de esta manera tendras instalado este repositorio de forma local y listo para usarse.
+#####Usuario y contraseña de *super-usuario*
+Usuario: angel@hotmail.com
+Contraseña: 123456789D
 
-## About Laravel
+####Seeds de la base de datos
+Los Usuarios y contraseñas asi como roles, permisos y su union se encuentran en el archovo ***database/seeds/UserRolSeeder.php***
+Asi mismo encontraras las demas seeds en la carpeta ***database/seeds***
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+#¿Qué contiene este proyecto?
+en este proyecto vas a encontrar un desarrollo realizado en laravel y que utiliza las dependencias extras de [Spatie Permission](https://github.com/spatie/laravel-permission "Spatie Permission") y [Laravel Collective HTML](https://github.com/laravelcollective/html "Laravel Collective HTML") para un mejor manejo de roles y permisos
+##¿Qué modulos contiene este proyecto?
+Este proyecto cuenta con varios modulos vinculados entre si como lo son:
+1. Usuarios
+1. Roles
+1. Permisos
+1. Recursos Humanos
+1. Entidades (de la republica mexicana)
+1. Universidades
+1. Departamentos
+1. Puestos
+1. Carreras
+1. Grupos
+1. Alumnos
+1. Vinculación de alumnos y materias
+1. Materias
+1. Calificaciones
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Cada uno de estos modulos tiene su propio controlador y todos estan protegidos por Autenticacion (inicio de sesión) y control de roles, es recomendable revisar la documentacion tanto de **laravel** como de **spatie** para evitar confuciones.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Todos los archivos de **spatie** los encontras en la carpeta ***vendor/spatie/laravel-permission***
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<h2 align="center">Colaboradore</h2>
+Desarrollador en jefe: [Angel Lundez](https://github.com/Engellundez "Angel Lundez")
+Diseñador de vistas: [Mauricio Diaz](https://github.com/Blasko "Mauricio ")
+Bases de datos: [Mario Sanchez](https://github.com/Marioalsr "Mario Sanchez") y [Fernando Porras](https://github.com/Porras2201 "Fernando Porras")
