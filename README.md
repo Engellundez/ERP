@@ -9,20 +9,26 @@
 </ol>
 
 <h3>Clonarlo</h3>
+
 ```bash
 git clone https://github.com/Engellundez/ERP.git
 ```
+
 <p>Despues de clonarlo deberas copiar el contenido que hay en el archivo <b>.env.exemple</b> o en su defecto renombrar este archivo como <b>.env</b>.</p>
 <h4>Instalar dependenncias</h4>
+
 ```bash
 cd ERP
 ```
+
 ```bash
 composer install
 ```
+
 ```bash
 php artisan key:generate
 ```
+
 <p>despues de correr estos comandos es necesario crear la base de datos con el nombre <b>unioccidente</b> o en su defecto renombrarla en el archivo <b>.env</b>:</p>
 
 ```php
@@ -35,9 +41,11 @@ DB_PASSWORD=		            //contraseña del usuario en el manejador
 ```
 
 <p>Una vez que allas creado tu base de datos es momento de correr las migracones con el comando:</p>
+
 ```bash
 php artisan migrate:fresh --seed
 ```
+
 <p>De esta manera tendras instalado este repositorio de forma local y listo para usarse.</p>
 <h4>Usuario y contraseña de <em>super-usuario</em></h4>
 <ul>
