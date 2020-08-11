@@ -34,8 +34,8 @@ php artisan key:generate
 ```php
 DB_CONNECTION=mysql	            //Manejador de base de datos
 DB_HOST=127.0.0.1	            //Ruta del localhost
-DB_PORT=3306			        //Puerto que se usa
-DB_DATABASE=unioccidente        //Nombre de la base de datos
+DB_PORT=3306			    //Puerto que se usa
+DB_DATABASE=unioccidente            //Nombre de la base de datos
 DB_USERNAME=root	            //Usuario en el manejador
 DB_PASSWORD=		            //contraseña del usuario en el manejador
 ```
